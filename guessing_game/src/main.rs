@@ -11,24 +11,35 @@ fn main() {
 
   println!("The secret number is: {}", secret_number);
 
-  println!("Please input your guess.");
+  // Starts infinite loop
+  loop {
+    println!("Please input your guess.");
 
-  // Declares guess as a mutable empty string value
-  let mut guess = String::new();
+    // Declares guess as a mutable empty string value
+    let mut guess = String::new();
 
-  io::stdin()
-    // & indicates that this is a reference and allows for other parts of program to access
-    .read_line(&mut guess)
-    .expect("Failed to read line");
+    io::stdin()
+      // & indicates that this is a reference and allows for other parts of program to access
+      .read_line(&mut guess)
+      .expect("Failed to read line");
 
-  let guess: i32 = guess.trim().parse()
-    .expect("Please type a number");
+    let guess: u32 = match guess.trim().parse() {
+      // parse returns a Result type that is an Enum, either Ok or Err
+      Ok(num) => num,
+      // _ is a catchall val that will match all Err vals
+      // This will ignore non-number inputs and ask for another guess
+      Err(_) => continue,
+    };
 
-  println!("You guessed: {}", guess);
+    println!("You guessed: {}", guess);
 
-  match guess.cmp(&secret_number) {
-    Ordering::Less => println!("Too small!"),
-    Ordering::Greater => println!("Too big!"),
-    Ordering::Equal => println!("You win!!"),
+    match guess.cmp(&secret_number) {
+      Ordering::Less => println!("Too small!"),
+      Ordering::Greater => println!("Too big!"),
+      Ordering::Equal => {
+        println!("You win!!");
+        break;
+      },
+    }
   }
 }
