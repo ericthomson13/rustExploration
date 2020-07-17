@@ -8,4 +8,4 @@ edition = "2018"
 
 [dependencies]
 # Pulls in rand as a crate (Crates.io) dependency using semVer for ^0.5.5
-rand = "0.5.5"
+rand = "0.6.0"
