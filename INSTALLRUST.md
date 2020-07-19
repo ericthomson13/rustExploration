@@ -1,6 +1,6 @@
 # This is a quikstart guide on how to install Rust on a Mac
 
-## If you are on a non-Mac/non-Unix machine see the official (docs)[https://forge.rust-lang.org/infra/other-installation-methods.html]
+## If you are on a non-Mac/non-Unix machine see the official [docs](https://forge.rust-lang.org/infra/other-installation-methods.html)
 
 - On Unix based systems run the script below to install rustup:
 
@@ -32,12 +32,12 @@ Cargo is a build and package manager.  There's a lot more to cargo but basic com
 - Build project documentation:
 ```cargo doc```
 
-- Publish your library to (crates.io)[https://crates.io/] which is where crates from ``` cargo ``` are pulled from:
+- Publish your library to [crates.io](https://crates.io/) which is where crates from ``` cargo ``` are pulled from:
 ```cargo publish```
 
 - To explore more options and capabilities of cargo run:
 ```cargo``` or ```cargo help <command>```
-- To do a full exploration into all the ```cargo``` capabilities visit the (book)[https://doc.rust-lang.org/cargo/index.html].
+- To do a full exploration into all the ```cargo``` capabilities visit the [book](https://doc.rust-lang.org/cargo/index.html).
 
 If ```cargo``` commands don't seem to be working double check that you've installed cargo by running:
 ```cargo --version```
