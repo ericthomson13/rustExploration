@@ -1,4 +1,4 @@
-# This is a quikstart guide on how to install Rust on a Mac
+# This is a quikstart guide on how to install Rust on a Unix Machine
 
 ## If you are on a non-Mac/non-Unix machine see the official [docs](https://forge.rust-lang.org/infra/other-installation-methods.html)
 
