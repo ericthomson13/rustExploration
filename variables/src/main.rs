@@ -56,4 +56,27 @@ fn main() {
   let f: bool = false;
 
   println!("t is {} and f is {}", t, f);
+
+  // Tuples
+
+  let tup: (i32, f64, u8) = (500, 6.4, 1);
+
+  // can destructure the tuple
+  // let (a, b, c) = tup;
+
+  // use . notation to call item at respective location in tuple
+  println!("tup is a tuple containing {}, {}, {}", tup.0, tup.1, tup.2);
+
+  // Arrays
+
+  // Arrays allocate data to the stack not the heap
+  // Arrays can't grow/shrink in size, vectors are more flexible
+
+  // arr is an array of 5 i32 integers
+  let arr: [i32; 5] = [1, 2, 3, 4, 5];
+
+  // shorter way of writing [3, 3, 3, 3, 3]
+  let threes = [3; 5];
+
+  println!("These are both arrays {:?} and {:?}", arr, threes);
 }
