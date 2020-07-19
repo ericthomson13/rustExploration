@@ -79,4 +79,68 @@ fn main() {
   let threes = [3; 5];
 
   println!("These are both arrays {:?} and {:?}", arr, threes);
+
+  // how to access array at an index, arrays are 0 indexed
+  let zeroth = arr[0];
+
+  println!("Array at 0 {}", zeroth);
+
+  // below will panic because there isn't arr[10]
+  // let index = 10;
+  // let elem = arr[index];
+  // println!("elem at index {}", elem);
+
+  // Functions!
+  another_function();
+  number_function(5);
+  multi_num_function(10, 15);
+
+  let f = five();
+  println!("f is equal to the return value of five which is {}", f);
+
+  let plus = plus_one(2);
+  println!("Plus one adds 1 to 2 which is {}", plus);
+
+  // function with control flow
+  greater_than_five(10);
+  greater_than_five(2);
+
+  condition(false);
+}
+
+fn another_function () {
+  println!("This is another function written outside of main!");
+}
+
+fn number_function (x: i32) {
+  println!("The value of x is {}", x);
+}
+
+fn multi_num_function (x: i32, y: i32) {
+  println!("X parameter is {}", x);
+  println!("Y parameter is {}", y);
+}
+
+// functions with a return value
+fn five () -> i32 {
+  5
+}
+
+fn plus_one (x: i32) -> i32 {
+  x + 1
+}
+
+// Conditional control flow
+fn greater_than_five (x: i32) {
+  if x < 5 {
+    println!("Input was less than 5");
+  } else {
+    println!("Input was 5 or greater");
+  }
+}
+
+fn condition(c: bool) {
+  let num = if c { 5 } else { 6 };
+
+  println!("Conditional input was {} and num is {}", c, num);
 }
