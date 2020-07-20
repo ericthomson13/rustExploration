@@ -40,7 +40,7 @@ fn for_through_arr () {
 }
 
 fn for_liftoff () {
-  // (1..4) uses a range and then .rev() goes from upper to lower both are std lib
+  // (1..4) uses a range and then .rev() to reverse, both are std lib
   for number in (1..4).rev() {
     println!("{}!", number);
   }
