@@ -7,3 +7,5 @@ This is where the [book](https://doc.rust-lang.org/book/ch00-00-introduction.htm
 
 # Getting started with this Repo
 - Ensure that you've installed Rust on your machine, if you haven't instructions are [here](./INSTALLRUST.md)
+
+- To run any section move into the folder and run: ```cargo run``` to run the respective code.
