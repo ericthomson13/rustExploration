@@ -68,6 +68,10 @@ fn main() {
   let none = plus_one(None);
 
   println!("five is {:?}, six is {:?}, none is {:?}", five, six, none);
+
+  some_val_match();
+
+  if_let_u8(3);
 }
 
 fn value_in_cents(coin: Coin) -> u8 {
@@ -85,7 +89,39 @@ fn value_in_cents(coin: Coin) -> u8 {
 
 fn plus_one(x: Option<i32>) -> Option<i32> {
   match x {
+    // without the None case this will not compile
     None => None,
     Some(i) => Some(i + 1),
   }
+}
+
+fn some_val_match () {
+  let some_u8_value = 0u8;
+  match some_u8_value {
+    1 => println!("one"),
+    2 => println!("two"),
+    3 => println!("three"),
+    5 => println!("five"),
+    7 => println!("seven"),
+    // below _ will match any value
+    _ => (),
+  }
+}
+
+fn if_let_u8 (val: u8) {
+  // if let declares var and checks equality in same line
+  // if let decreasese code matching when only care about a single case
+  if let Some(3) = Some(val) {
+    println!("if_let_u8() matched Some(3)");
+  }
+}
+
+fn if_let_else (coin: Coin) -> u64 {
+  let mut count = 0;
+  if let Coin::Quarter(state) = coin {
+    println!("State quareter from {:?}", state);
+  } else {
+    count += 1;
+  }
+  count;
 }
