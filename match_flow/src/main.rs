@@ -116,12 +116,11 @@ fn if_let_u8 (val: u8) {
   }
 }
 
-fn if_let_else (coin: Coin) -> u64 {
+fn if_let_else (coin: Coin) -> () {
   let mut count = 0;
   if let Coin::Quarter(state) = coin {
     println!("State quareter from {:?}", state);
   } else {
     count += 1;
   }
-  count;
 }
