@@ -111,6 +111,41 @@ fn strings () {
   }
 }
 
+/*
+  HashMap is not automatically brought into scope because
+  it is the least used of the collections.  They also have less
+  support from the std library.  There's no built in macro to construct them
+*/
+use std::collections::HashMap;
+
 fn hash_maps () {
+  let mut scores1 = HashMap::new();
+
+  scores1.insert(String::from("Blue"), 10);
+  scores1.insert(String::from("Red"), 50);
+
+  // creating the same with names and scores in vectors initially
+  let teams = vec![String::from("Blue"), String::from("Yellow")];
+  let initial_scores = vec![10, 50];
+
+  // zips the vectors together into the HashMaps
+  // <_,_> type annotation is necessary and will default to String, i32 because of values in the vectors
+  let mut scores2: HashMap<_,_> = teams.into_iter()
+    .zip(initial_scores.into_iter()).collect();
+
+  // accessing values in hashMap
+  let team_name = String::from("Blue");
+  let blue_score = scores2.get(&team_name);
+
+  // iterating through a hashMap
+  for (key, value) in &scores2 {
+    println!("{}: {}", key, value);
+  }
+
+  let field_name = String::from("Favorite color");
+  let field_value = String::from("Blue");
+
+  let mut map = HashMap::new();
+  map.insert(field_name, field_value);   // field_name and field_value are invalid now
 
 }
