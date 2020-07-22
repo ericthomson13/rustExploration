@@ -59,3 +59,58 @@ fn spread_sheet () {
     SpreadsheetCell::Text(String::from("blue")),
   ];
 }
+
+fn strings () {
+  // all strings are UTF-8 encoded
+  let data = "intial contents";
+
+  // below all create the same string
+  let s1 = data.to_string();
+  let s2 = "initial contents".to_string();
+  let s3 = String::from(data);
+
+  let mut s = String::from("foo");
+  s.push_str(" bar");
+
+  let mut string1 = String::from("foo");
+  let string2 = "bar";
+  // push_str() doesn't take ownership of string2 just uses a slice
+  string1.push_str(string2);
+  println!("string2 is {}", string2);
+
+  // allows for a single character parameter using push()
+  let mut pushstring = String::from("lo");
+  pushstring.push('l');
+
+  let hello = String::from("hello");
+  let world = String::from("world!");
+  let hello_world = hello + &world; // hello ownership is moved
+
+  let tic = String::from("tic");
+  let tac = String::from("tac");
+  let toe = String::from("toe");
+
+  // format macro makes it easier to see complex string combining
+  let formatted = format!("{}-{}-{}", tic, tac, toe);
+  println!("formatted is {}", formatted);
+
+  let hola = String::from("hola");
+  // below doesn't work because strings aren't indexed
+  // let h = hola[0];
+  // below can be used but is unpredictable because is bytes in storage
+  let h2 = &hola[0..4];
+
+
+  // Iterate through strings to access elements
+  for c in hola.chars() {
+    println!("{}", c);
+  }
+
+  for b in hola.bytes() {
+    println!("{}", b);
+  }
+}
+
+fn hash_maps () {
+
+}
