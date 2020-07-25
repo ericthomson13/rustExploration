@@ -149,3 +149,47 @@ fn hash_maps () {
   map.insert(field_name, field_value);   // field_name and field_value are invalid now
 
 }
+
+
+fn key_in_hash_already_exists () {
+  use std::collections::HashMap;
+
+  let mut scores = HashMap::new();
+
+  scores.insert(String::from("Blue"), 10);
+  // overwrites Blue: 10
+  scores.insert(String::from("Blue"), 25);
+
+  println!("{:?}", scores);
+}
+
+fn check_if_key () {
+  use std::collections::HashMap;
+
+  let mut scores = HashMap::new();
+
+  scores.insert(String::from("Blue"), 10);
+
+  // .entry() checks if key exists then only adds val if doesn't
+  scores.entry(String::from("Yellow")).or_insert(50);
+  scores.entry(String::from("Blue")).or_insert(50);
+
+  println!("{:?}", scores);
+}
+
+fn update_keys_value () {
+  use::std::collections::HashMap;
+
+  let text = "hello world wonderful world";
+
+  let mut map = HashMap::new();
+
+  // tracks the number of times that we've seen a word
+  for word in text.split_whitespace() {
+    let count = map.entry(word).or_insert(0);
+    // * operator dereferences count
+    *count += 1;
+  }
+
+  println!("{:?}", map);
+}
