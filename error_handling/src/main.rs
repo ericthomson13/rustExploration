@@ -101,3 +101,10 @@ fn read_username_from_file () -> Result<String, io::Error> {
 
   Ok(s)
 }
+
+// this is logically "impossible" on localmachine to fail
+use std::net::IpAddr;
+fn home_addr () {
+  let home: IpAddr = "127.0.0.1".parse().unwrap();
+}
+
